@@ -3,6 +3,7 @@ use board::Game;
 use std::io;
 use std::io::Write;
 use std::thread::*;
+use std::time::Duration;
 
 extern crate rand;
 use self::rand::Rng;
@@ -32,8 +33,8 @@ fn main() {
       // AI
       print!("AI is deliberating");
       io::stdout().flush().ok().expect("Failed to flush");
-      for i in 0 .. rand::thread_rng().gen_range(3, 5) {
-        sleep_ms(1000);
+      for _i in 0 .. rand::thread_rng().gen_range(0..1) {
+        sleep(Duration::from_millis(1000));
         print!(".");
         io::stdout().flush().ok().expect("Failed to flush");
       }
